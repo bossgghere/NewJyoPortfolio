@@ -48,7 +48,7 @@ function IntroComponent() {
             </div>
 
             <div className="imageIntro" id="imageIntro1">
-                <img className="iphoneImg" src={iphoneImg} alt="Project on iPhone" width="50%"/>
+                <img className="iphoneImg" src={iphoneImg} alt="Project on iPhone" width="38%"/>
                 <span style={{fontSize:"150%"}}className="specialtext"><p style={{left:"-120px",position:"relative",marginTop:-45,textAlign:"right",color:"orange"}} className="cartoonText cartoonTextIntro">More of such interesting projects ~</p></span>
                 <img className="macLw" src={macLw} alt="Project on Mac" width="100%"/>
             </div>

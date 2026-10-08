@@ -1,8 +1,14 @@
 import React, { useRef } from 'react'
 import clamp from 'lodash-es/clamp'
-import swap from 'lodash-move'
 import { useDrag } from '@use-gesture/react'
 import { useSprings, animated, to } from '@react-spring/web'
+
+// returns a copy of the array with the item at `from` moved to index `to`
+const swap = (arr, from, to) => {
+  const next = arr.slice()
+  next.splice(to, 0, next.splice(from, 1)[0])
+  return next
+}
 
 const ROW = 64 // vertical pitch of one skill row (56px card + 8px gap)
 
@@ -30,7 +36,7 @@ export default function DraggableList({ items }) {
           key={i}
           style={{
             zIndex,
-            touchAction: 'none',
+            touchAction: 'pan-y',
             boxShadow: shadow.to((s) => `rgba(0, 0, 0, 0.15) 0px ${s}px ${2 * s}px 0px`),
             transform: to([y, scale], (y, s) => `translate3d(0,${y}px,0) scale(${s})`),
           }}

@@ -1,4 +1,5 @@
 import React from "react";
+import instagramQR from "../assets/img/instagramQR.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram, faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
@@ -29,6 +30,21 @@ function Footer() {
             </p>
           </span>
         </div>
+        {/* small Instagram card fills the gap between the name and the credit */}
+        <a className="footerCard idCard" href="https://www.instagram.com/jyoshika945" target="_blank" rel="noreferrer">
+          <div className="footerCardBar">
+            <h1><strong style={{ color: "#FE5E58" }}> .</strong></h1>
+            <h1><strong style={{ color: "#FEBD2C" }}>.</strong></h1>
+            <h1><strong style={{ color: "#27C841" }}> .</strong></h1>
+          </div>
+          <div className="footerCardBody">
+            <img src={instagramQR} alt="Instagram QR code" />
+            <div>
+              <h1>@jyoshika945</h1>
+              <h3>Scan to follow on Instagram</h3>
+            </div>
+          </div>
+        </a>
         <p
           className="lastText"
           style={{

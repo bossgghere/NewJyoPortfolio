@@ -31,8 +31,12 @@ body {
   /* cursor: url('https://uploads.codesandbox.io/uploads/user/b3e56831-8b98-4fee-b941-0e27f39883ab/Ad1_-cursor.png') 39 39,
     auto; */
     background-color: var(--backgroundColor) !important;
-  overflow-x: hidden;
 }
+
+/* clip sideways overflow on the viewport only, so the page itself scrolls normally */
+html { overflow-x: hidden; }
+body { overflow-x: clip; }
+
 
 h1,h2,h3,h4,h5,h6{
   font-family: "EBGaramondBold";
@@ -150,7 +154,7 @@ a {
 }
 
 .backgroundDiv{
-  height:100vh;
+  min-height:100vh;
   background-size: cover;
   background-repeat: no-repeat;
   /* background-image: url('./assets/img/background.png'); */
@@ -221,7 +225,7 @@ a {
 .iphoneImg{
   position: relative;
   top: 50px;
-  left: 80%;
+  left: 88%;
   z-index: 1;
   /* transform: rotate(1deg); */
   transition: transform 1.2s ease-in-out;
@@ -348,7 +352,7 @@ svg{
   margin-right: auto;
   position: absolute;
   left: 10%;
-  animation: hideAnimation 0s ease-in 2.5s;
+  animation: hideAnimation 0s ease-in 1.2s;
   animation-fill-mode: forwards;
 }
 
@@ -362,7 +366,7 @@ svg{
 
 .hiddenText{
   visibility:hidden;
-  animation: showAnimation 0s ease-in 2.5s;
+  animation: showAnimation 0s ease-in 1.2s;
   animation-fill-mode: forwards;
 }
 
@@ -896,4 +900,89 @@ svg{
 @media only screen and (max-width: 600px) {
   .skillSet{ gap:0; }
   .notesDiv{ margin-top:0px !important; }
+}
+
+/* ---------- footer: small Instagram card in the gap ---------- */
+.footerCard{
+  display:flex;
+  flex-direction:column;
+  margin:18px auto 8px auto;
+  width:290px;
+  border:2px solid lightgrey;
+  border-radius:10px;
+  background:#fff;
+  color:#000;
+}
+.footerCardBar{
+  display:flex;
+  align-items:center;
+  padding:5px;
+  height:25px;
+  background-color:#ededed;
+  border-bottom:1px solid lightgrey;
+  border-top-left-radius:10px;
+  border-top-right-radius:10px;
+  font-size:150%;
+}
+.footerCardBar h1{ margin-top:10px; }
+.footerCardBody{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:14px;
+}
+.footerCardBody img{
+  width:78px;
+  height:78px;
+  border-radius:8px;
+  object-fit:cover;
+}
+.footerCardBody h1{ font-size:105%; margin:0; }
+.footerCardBody h3{ font-family:"EBGaramondRegular"; opacity:0.3; font-size:75%; margin:4px 0 0 0; }
+
+@media only screen and (max-width: 600px) {
+  .footerCard{ margin:18px auto; width:92%; max-width:320px; }
+}
+
+/* =====================================================================
+   Responsive fixes (tablet / phone). Kept at the end so they win ties.
+   ===================================================================== */
+@media only screen and (max-width: 1320px) {
+  /* the Mac + iPhone mockup stays inside the screen and centred */
+  .imageIntro{ width:min(720px, 94%) !important; margin:50px auto 0 auto; }
+  .macLw{ left:0 !important; width:84% !important; }
+  .iphoneImg{ left:60% !important; width:40% !important; top:40px; }
+  .cartoonTextIntro{ left:0 !important; position:relative; margin-top:30px !important; text-align:center !important; display:block; }
+}
+
+@media only screen and (max-width: 600px) {
+  /* hero buttons: share the row instead of spilling off small screens */
+  .hiddenText > div{ gap:12px; }
+  .hiddenText a{ flex:1; }
+  .hiddenText button.btn,
+  .hiddenText button.btn2{ width:100% !important; margin:16px 0 !important; }
+
+  /* About: phone image can never be wider than its column */
+  .instaLoop{ min-width:0 !important; width:78% !important; max-width:300px; }
+
+  /* Skills: heading and window first, notepad after (natural reading order) */
+  .skillSet{ flex-direction:column !important; align-items:stretch !important; }
+  .draggableItems{ max-width:none !important; }
+
+  /* Projects: cards centred and full width */
+  .projectsDiv{ padding:10px 0 !important; }
+  .projectsDiv > div{ width:100%; display:flex; justify-content:center; }
+  .projectCard{ width:100% !important; }
+
+  /* Experience / popup breathing room on small screens */
+  .projectPop{ padding:16px; }
+  .popActions .btn, .popActions .btn2{ min-width:0; flex:1 1 140px; margin-right:8px; }
+}
+
+@media only screen and (max-width: 480px) {
+  /* skill rows: label on top, items underneath, so long lists never overflow the card */
+  .content > div{ flex-direction:column !important; align-items:flex-start !important; justify-content:center !important; gap:0 !important; line-height:1.2; }
+  .skillItems{ font-size:80%; }
+  .hiddenText button.btn,
+  .hiddenText button.btn2{ white-space:nowrap; padding:10px 6px; font-size:95%; }
 }

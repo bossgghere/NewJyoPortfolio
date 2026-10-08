@@ -3,6 +3,8 @@ import DraggableList from './Viewpager'
 import notes from '../assets/img/notes.png'
 
 function SkillSet() {
+    // dragging is a mouse feature; on touch screens the rows stay put so the page can scroll
+    const canDrag = typeof window === 'undefined' || !window.matchMedia('(pointer: coarse)').matches
     // [label, items] — keep each line short enough to fit the draggable card
     const arraySkills = [
         ['Languages', 'Python, C++, Java, TypeScript, SQL'],
@@ -29,7 +31,7 @@ function SkillSet() {
             </div>
                 <div className="notesDiv" style={{width:"50%",marginTop:100}}>
                 <img className="notes" src={notes} alt="Notes" width="100%"/>
-                <p className="cartoonText" style={{fontSize:"150%",color:"orange",textAlign:"center"}}>PS. My Skill set is Literally Variable, Try Dragging and Rearranging one of the Skills :p</p>
+                <p className="cartoonText" style={{fontSize:"150%",color:"orange",textAlign:"center"}}>{canDrag ? 'PS. My Skill set is Literally Variable, Try Dragging and Rearranging one of the Skills :p' : 'PS. My Skill set is Literally Variable, there is always something new on the list :p'}</p>
                 </div>
         </div>
     )

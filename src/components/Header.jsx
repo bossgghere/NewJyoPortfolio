@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import DrawerComponent from './DrawerComponent';
 
 // smooth-scroll to a section id without changing the URL
@@ -10,7 +10,14 @@ const scrollTo = (id) => (e) => {
 
 function Header() {
   // phones get the drawer menu, wider screens get inline links
-  const [isMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < 800);
+  const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < 800);
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 799px)');
+    const onChange = (e) => setIsMobile(e.matches);
+    setIsMobile(mq.matches);
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  }, []);
 
   return (
     <div style={{display:"flex",padding:0,paddingLeft:20,top:0,position:"fixed",zIndex:100,backgroundColor:"#fff",width:"100vw",borderBottom:"1px solid #ededed"}}>
