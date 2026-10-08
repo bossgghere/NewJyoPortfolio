@@ -87,47 +87,58 @@ a {
   background: #f0f0f0;
 }
 
+/* ---------- draggable skill rows: light cards that match the idCard / experience look ---------- */
 .content {
   cursor: url('https://uploads.codesandbox.io/uploads/user/b3e56831-8b98-4fee-b941-0e27f39883ab/Ad1_-cursor.png') 39 39,
   auto;
   position: relative;
   font-family: "EBGaramondBold" !important;
-  width: 420px;
-  height: 240px;
+  width: 100%;
   font-size:18px;
 }
 
 .content > div {
   position: absolute;
-  width: 450px;
-  height: 90px;
+  left: 0;
+  width: 100%;
+  height: 56px;
   overflow: visible;
   font-family: "EBGaramondBold" !important;
   pointer-events: auto;
   transform-origin: 50% 50% 0px;
-  border-radius: 8px;
-  color: white;
-  line-height: 90px;
-  padding-left: 32px;
-  background: lightblue;
-  /* text-transform: uppercase; */
+  border-radius: 10px;
+  border: 1.5px solid #ededed;
+  background: #fff;
+  color: #000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-left: 26px;
+  user-select: none;
 }
 
-.content > div:nth-child(1) {
-  background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
-}
-.content > div:nth-child(3) {
+/* thin gradient accent on the left edge of every row */
+.content > div::before {
+  content: "";
+  position: absolute;
+  left: 9px;
+  top: 12px;
+  bottom: 12px;
+  width: 5px;
+  border-radius: 5px;
   background: linear-gradient(135deg, #3beb7b 0%, #3fa1fc 100%);
 }
-.content > div:nth-child(4) {
-  background: linear-gradient(135deg, #5ee7df 0%, #7e38e0 100%);
-}
-.content > div:nth-child(5) {
-  background: linear-gradient(135deg, #fda085 0%, #f6d365 100%);
-}
-.content > div:nth-child(2) {
-  background: linear-gradient(135deg, #f5576c 0%, #eebd89 100%);
-}
+.content > div:nth-child(2)::before { background: linear-gradient(135deg, #f5576c 0%, #eebd89 100%); }
+.content > div:nth-child(3)::before { background: linear-gradient(135deg, #5ee7df 0%, #7e38e0 100%); }
+.content > div:nth-child(4)::before { background: linear-gradient(135deg, #f6d365 0%, #fda085 100%); }
+.content > div:nth-child(5)::before { background: linear-gradient(135deg, #3fa1fc 0%, #7e38e0 100%); }
+
+.skillLabel { color: #000; }
+.skillItems { font-family: "EBGaramondRegular"; opacity: 0.5; font-size: 90%; }
+
+.skillWindow { background:#fff; width:100%; }
+.skillBody { padding: 20px; }
+
 
 .container{
   width: 70%;
@@ -876,4 +887,13 @@ svg{
   padding:10px 26px;
   white-space:nowrap;
   margin-right:12px;
+}
+
+/* skills: two even columns, tops aligned (window on the left, notes on the right) */
+.skillSet{ align-items:flex-start; gap:4%; }
+.draggableItems{ width:46%; }
+.notesDiv{ margin-top:60px !important; }
+@media only screen and (max-width: 600px) {
+  .skillSet{ gap:0; }
+  .notesDiv{ margin-top:0px !important; }
 }

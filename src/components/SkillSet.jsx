@@ -15,8 +15,16 @@ function SkillSet() {
         <div id="skills" className="skillSet">
             <div className="draggableItems">
                 <h1>Variable Skill Set <strong style={{color:"orange"}}>.</strong></h1>
-                <div className="SkillSetItems" style={{display:"flex",justifyContent:"space-between",alignItems: "center",width:"120%"}}>
-                    <DraggableList items={arraySkills}/>
+                <div className="idCard skillWindow" style={{display:"flex",flexDirection:"column",border:"2px solid lightgrey",borderRadius:10}}>
+                    <div style={{padding:5,width:"100%",backgroundColor:"#ededed",fontSize:"150%",borderBottom:"1px solid lightgrey",height:25,borderTopLeftRadius: 10,borderTopRightRadius:10,display:"flex",alignItems: "center",justifyContent:"start"}}>
+                        <h1 style={{marginTop:10}}><strong style={{color:"#FE5E58"}}> .</strong></h1>
+                        <h1 style={{marginTop:10}}><strong style={{color:"#FEBD2C"}}>.</strong></h1>
+                        <h1 style={{marginTop:10}}><strong style={{color:"#27C841"}}> .</strong></h1>
+                        <span className="expFile">skills.sh</span>
+                    </div>
+                    <div className="skillBody SkillSetItems">
+                        <DraggableList items={arraySkills}/>
+                    </div>
                 </div>
             </div>
                 <div className="notesDiv" style={{width:"50%",marginTop:100}}>
