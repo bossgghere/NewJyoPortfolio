@@ -10,6 +10,13 @@ const siteUrl = process.env.SITE_URL
 export default defineConfig({
   plugins: [
     react(),
-    { name: 'site-url', transformIndexHtml: (html) => html.replaceAll('__SITE_URL__', siteUrl) },
+    {
+      name: 'site-url',
+      transformIndexHtml: (html) => {
+        // no known domain (local dev): drop the tags that must be absolute, keep the rest relative
+        if (!siteUrl) html = html.replace(/^.*(?:og:url|rel="canonical").*\n/gm, '')
+        return html.replaceAll('__SITE_URL__', siteUrl)
+      },
+    },
   ],
 })

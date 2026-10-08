@@ -10,12 +10,12 @@ export default function TemporaryDrawer() {
 
   return (
     <div>
-      <Button onClick={() => setOpen(true)}><MenuIcon fontSize="large" style={{color:"#333333"}}/></Button>
+      <Button onClick={() => setOpen(true)}><MenuIcon fontSize="large" style={{color:"var(--menuIcon)"}}/></Button>
       <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
         <div
           role="presentation"
           onClick={() => setOpen(false)}
-          style={{ width: 300, backgroundColor: "#fff", color: "#000", height: "100%", fontWeight: 500 }}
+          style={{ width: 300, backgroundColor: "var(--backgroundColor)", color: "var(--textcolor)", height: "100%", fontWeight: 500 }}
         >
           <MyList />
         </div>

@@ -23,15 +23,15 @@ function IntroComponent() {
                     <h1 className="headingIntro"><span></span><strong style={{color:"var(--blue)"}}> .</strong></h1></div>
                     <img src={textBubble} className="textBubble" alt="" />
                     <div className="hiddenText">
-                        <p  style={{color:"#000",opacity:0.5 }}>Hey There! I am Jyoshika Reddy - a Full-Stack Developer and final-year IT student. I like building reliable web apps and understanding the systems behind them. Welcome to my Professional Portfolio.</p>
+                        <p  style={{color:"var(--textcolor)",opacity:0.5 }}>Hey There! I am Jyoshika Reddy - a Full-Stack Developer and final-year IT student. I like building reliable web apps and understanding the systems behind them. Welcome to my Professional Portfolio.</p>
                         <div style={{display:"flex"}}>
                             <a href="/" onClick={scrollTo('socials')}><button className="btn">Connect Now</button></a>
                             <a href="/" onClick={scrollTo('projects')}><button className="btn2">My Projects</button></a>
                         </div>
                      </div>
                      { showResults ?
-                    <div className="idCard" style={{display:"flex",flexDirection:"column",marginTop:30,border:"2px solid lightgrey",borderRadius:10}}>
-                        <div style={{padding:5,width:"100%",backgroundColor:"#ededed",fontSize:"150%",borderBottom:"1px solid lightgrey",height:25,borderTopLeftRadius: 10,borderTopRightRadius:10,display:"flex",alignItems: "center",justifyContent:"start"}}>
+                    <div className="idCard" style={{display:"flex",flexDirection:"column",marginTop:30,border:"2px solid var(--border)",borderRadius:10}}>
+                        <div style={{padding:5,width:"100%",backgroundColor:"var(--bar)",fontSize:"150%",borderBottom:"1px solid var(--border)",height:25,borderTopLeftRadius: 10,borderTopRightRadius:10,display:"flex",alignItems: "center",justifyContent:"start"}}>
                             <h1 onClick={onClick} style={{marginTop:10,cursor:"pointer"}}><strong style={{color:"#FE5E58"}}> .</strong></h1>
                             <h1 style={{marginTop:10}}><strong style={{color:"#FEBD2C"}}>.</strong></h1>
                             <h1 style={{marginTop:10}}><strong style={{color:"#27C841"}}> .</strong></h1>

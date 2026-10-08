@@ -1,4 +1,5 @@
 import React from 'react'
+import Reveal from './Reveal'
 
 // gradients reuse the palette of the skill cards so the section feels native
 const gradients = [
@@ -62,8 +63,8 @@ function ExperienceCard({ item, index }) {
 
   return (
     <div ref={ref} className={`expItem ${seen ? 'expSeen' : ''}`} style={{ '--dot': gradients[index % gradients.length] }}>
-      <div className="idCard expCard" style={{ display: 'flex', flexDirection: 'column', border: '2px solid lightgrey', borderRadius: 10 }}>
-        <div style={{ padding: 5, width: '100%', backgroundColor: '#ededed', fontSize: '150%', borderBottom: '1px solid lightgrey', height: 25, borderTopLeftRadius: 10, borderTopRightRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'start' }}>
+      <div className="idCard expCard" style={{ display: 'flex', flexDirection: 'column', border: '2px solid var(--border)', borderRadius: 10 }}>
+        <div style={{ padding: 5, width: '100%', backgroundColor: 'var(--bar)', fontSize: '150%', borderBottom: '1px solid var(--border)', height: 25, borderTopLeftRadius: 10, borderTopRightRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'start' }}>
           <h1 style={{ marginTop: 10 }}><strong style={{ color: '#FE5E58' }}> .</strong></h1>
           <h1 style={{ marginTop: 10 }}><strong style={{ color: '#FEBD2C' }}>.</strong></h1>
           <h1 style={{ marginTop: 10 }}><strong style={{ color: '#27C841' }}> .</strong></h1>
@@ -86,8 +87,8 @@ function ExperienceCard({ item, index }) {
 function Experience() {
   return (
     <div id="experience" className="experience">
-      <h1>Experience <strong style={{ color: '#27C841' }}>.</strong></h1>
-      <p className="cartoonText" style={{ fontSize: '150%', color: 'orange', margin: '0 0 10px 0' }}>~ Where I have been building things</p>
+      <Reveal><h1>Experience <strong style={{ color: '#27C841' }}>.</strong></h1></Reveal>
+      <Reveal delay={100}><p className="cartoonText" style={{ fontSize: '150%', color: 'orange', margin: '0 0 10px 0' }}>~ Where I have been building things</p></Reveal>
       <div className="expList">
         {items.map((item, i) => <ExperienceCard key={item.file} item={item} index={i} />)}
       </div>

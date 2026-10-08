@@ -1,5 +1,6 @@
 import React from 'react'
 import DraggableList from './Viewpager'
+import Reveal from './Reveal'
 import notes from '../assets/img/notes.png'
 
 function SkillSet() {
@@ -15,10 +16,10 @@ function SkillSet() {
     ]
     return (
         <div id="skills" className="skillSet">
-            <div className="draggableItems">
+            <Reveal><div className="draggableItems">
                 <h1>Variable Skill Set <strong style={{color:"orange"}}>.</strong></h1>
-                <div className="idCard skillWindow" style={{display:"flex",flexDirection:"column",border:"2px solid lightgrey",borderRadius:10}}>
-                    <div style={{padding:5,width:"100%",backgroundColor:"#ededed",fontSize:"150%",borderBottom:"1px solid lightgrey",height:25,borderTopLeftRadius: 10,borderTopRightRadius:10,display:"flex",alignItems: "center",justifyContent:"start"}}>
+                <div className="idCard skillWindow" style={{display:"flex",flexDirection:"column",border:"2px solid var(--border)",borderRadius:10}}>
+                    <div style={{padding:5,width:"100%",backgroundColor:"var(--bar)",fontSize:"150%",borderBottom:"1px solid var(--border)",height:25,borderTopLeftRadius: 10,borderTopRightRadius:10,display:"flex",alignItems: "center",justifyContent:"start"}}>
                         <h1 style={{marginTop:10}}><strong style={{color:"#FE5E58"}}> .</strong></h1>
                         <h1 style={{marginTop:10}}><strong style={{color:"#FEBD2C"}}>.</strong></h1>
                         <h1 style={{marginTop:10}}><strong style={{color:"#27C841"}}> .</strong></h1>
@@ -28,11 +29,11 @@ function SkillSet() {
                         <DraggableList items={arraySkills}/>
                     </div>
                 </div>
-            </div>
-                <div className="notesDiv" style={{width:"50%",marginTop:100}}>
+            </div></Reveal>
+                <Reveal delay={160}><div className="notesDiv" style={{width:"50%",marginTop:100}}>
                 <img className="notes" src={notes} alt="Notes" width="100%"/>
                 <p className="cartoonText" style={{fontSize:"150%",color:"orange",textAlign:"center"}}>{canDrag ? 'PS. My Skill set is Literally Variable, Try Dragging and Rearranging one of the Skills :p' : 'PS. My Skill set is Literally Variable, there is always something new on the list :p'}</p>
-                </div>
+                </div></Reveal>
         </div>
     )
 }

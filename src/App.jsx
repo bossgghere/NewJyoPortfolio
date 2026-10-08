@@ -1,4 +1,6 @@
 import Header from "./components/Header";
+import ScrollProgress from "./components/ScrollProgress";
+import Loader from "./components/Loader";
 import Footer from "./components/Footer";
 import React from "react";
 import IntroComponent from "./components/IntroComponent";
@@ -10,6 +12,8 @@ import Projects from "./components/Projects";
 export default function App() {
   return (
     <div className="">
+      <Loader />
+      <ScrollProgress />
       <Header />
       <div className="backgroundDiv">
         <div className="container">

@@ -4,6 +4,10 @@
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="theme-color" content="#ffffff" />
+    <script>
+      // apply the saved theme before the page paints (light unless the visitor chose dark)
+      try { document.documentElement.dataset.theme = localStorage.getItem('theme') === 'dark' ? 'dark' : 'light' } catch (e) { document.documentElement.dataset.theme = 'light' }
+    </script>
     <title>Jyoshika Reddy</title>
     <meta
       name="description"
@@ -15,6 +19,8 @@
 
     <!-- Open Graph / Twitter: how the link looks when shared -->
     <meta property="og:type" content="website" />
+    <link rel="canonical" href="__SITE_URL__/" />
+    <meta property="og:url" content="__SITE_URL__/" />
     <meta property="og:site_name" content="Jyoshika Reddy" />
     <meta property="og:title" content="Hi, I'm Jyoshika ✨ Full-Stack Developer" />
     <meta property="og:description" content="I turn tiny ideas into tidy, working apps with Next.js, React, Node.js and FastAPI. Come say hi! 👋" />

@@ -1,4 +1,5 @@
 import React from 'react'
+import Reveal from './Reveal'
 import linkedinPhone from '../assets/img/linkedinPhone.png'
 import linkedinQR from '../assets/img/linkedinQR.png'
 
@@ -8,8 +9,8 @@ function AboutMe() {
 
     return (
         <div id="about" style={{display:"flex",alignItems:"center"}}>
-            <img className="instaLoop" src={linkedinPhone} alt="LinkedIn profile on phone" width="30%"/>
-            <div className="aboutMe">
+            <Reveal variant="fade"><img className="instaLoop" src={linkedinPhone} alt="LinkedIn profile on phone" width="30%"/></Reveal>
+            <Reveal delay={120}><div className="aboutMe">
                 <h1>About Me <strong style={{color:"#f5576c"}}>.</strong></h1>
                 <p className="para" style={{width:"70%", marginLeft:"auto",marginRight:"auto"}}>A final-year B.E. Information Technology student at Gokaraju Lailavathi Engineering College (Osmania University), Hyderabad. I build full-stack web apps with Next.js, React, Node.js and FastAPI - from dashboards to REST APIs - and I enjoy understanding how systems behave under real use. Currently interning at Algo Chowk, with 250+ LeetCode problems solved along the way.
                 <br/>
@@ -22,8 +23,8 @@ function AboutMe() {
                 {
                     showQR ?
 
-                <div className="idCard idCard2" style={{marginLeft:"auto",marginRight:"auto",width:"70%",display:"flex",flexDirection:"column",marginTop:30,border:"2px solid lightgrey",borderRadius:10}}>
-                        <div style={{padding:5,width:"100%",backgroundColor:"#ededed",fontSize:"150%",borderBottom:"1px solid lightgrey",height:25,borderTopLeftRadius: 10,borderTopRightRadius:10,display:"flex",alignItems: "center",justifyContent:"start"}}>
+                <div className="idCard idCard2" style={{marginLeft:"auto",marginRight:"auto",width:"70%",display:"flex",flexDirection:"column",marginTop:30,border:"2px solid var(--border)",borderRadius:10}}>
+                        <div style={{padding:5,width:"100%",backgroundColor:"var(--bar)",fontSize:"150%",borderBottom:"1px solid var(--border)",height:25,borderTopLeftRadius: 10,borderTopRightRadius:10,display:"flex",alignItems: "center",justifyContent:"start"}}>
                             <h1 onClick={onClose} style={{zIndex:50,marginTop:10,cursor:"pointer"}}><strong style={{color:"#FE5E58"}}> .</strong></h1>
                             <h1 style={{marginTop:10}}><strong style={{color:"#FEBD2C"}}>.</strong></h1>
                             <h1 style={{marginTop:10}}><strong style={{color:"#27C841"}}> .</strong></h1>
@@ -45,7 +46,7 @@ function AboutMe() {
 
                 }
 
-            </div>
+            </div></Reveal>
         </div>
     )
 }

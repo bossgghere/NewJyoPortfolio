@@ -1,4 +1,5 @@
 import React from "react";
+import Reveal from "./Reveal";
 import instagramQR from "../assets/img/instagramQR.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram, faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
@@ -7,11 +8,11 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 function Footer() {
   return (
     <>
-      <div
+      <Reveal><div
         id="socials"
         style={{
           display: "flex",
-          borderTop: "1px solid #ededed",
+          borderTop: "1px solid var(--hairline)",
           paddingLeft: 20,
           width: "100%",
           alignItems: "center",
@@ -57,8 +58,8 @@ function Footer() {
         >
           Designed and Developed by Me © 2026
         </p>
-      </div>
-      <div
+      </div></Reveal>
+      <Reveal delay={150}><div
         className="socialLinks"
         style={{
           display: "flex",
@@ -84,7 +85,7 @@ function Footer() {
           {" "}
           <FontAwesomeIcon icon={faEnvelope} size="2x" />
         </a>
-      </div>
+      </div></Reveal>
       <span
         style={{ display: "none", fontSize: "150%" }}
         className="specialtext2"

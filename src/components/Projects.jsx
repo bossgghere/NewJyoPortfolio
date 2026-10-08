@@ -1,5 +1,6 @@
 import * as React from "react";
 import DialogProjects from "./DialogProjects";
+import Reveal from "./Reveal";
 
 import boneFracture from "../assets/projects/bone-fracture.jpg";
 import rateLimiter from "../assets/projects/rate-limiter.jpg";
@@ -46,12 +47,14 @@ const projectList = [
 function Projects() {
   return (
     <div id="projects">
-      <h1>
-        Projects <strong style={{ color: "#006AFF" }}>.</strong>
-      </h1>
+      <Reveal>
+        <h1>
+          Projects <strong style={{ color: "#006AFF" }}>.</strong>
+        </h1>
+      </Reveal>
       <div className="projectsDiv">
-        {projectList.map((data) => (
-          <DialogProjects key={data.title} {...data} />
+        {projectList.map((data, i) => (
+          <DialogProjects key={data.title} {...data} revealDelay={(i % 2) * 120} />
         ))}
       </div>
     </div>

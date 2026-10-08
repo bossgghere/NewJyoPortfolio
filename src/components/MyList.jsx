@@ -5,7 +5,7 @@ import Avatar from '@mui/material/Avatar';
 import React from 'react';
 import dp from '../assets/img/dp.jpg';
 
-const linkStyle = { color: "#000", opacity: 0.5, display: "flex", alignItems: "center", textDecoration: "none" };
+const linkStyle = { color: "var(--textcolor)", opacity: 0.5, display: "flex", alignItems: "center", textDecoration: "none" };
 
 function MyList() {
   return (

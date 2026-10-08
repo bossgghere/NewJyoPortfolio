@@ -2,20 +2,22 @@ import * as React from 'react';
 import Dialog from '@mui/material/Dialog';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import useReveal from '../hooks/useReveal';
 
 // Small popup: preview image, short description, and a GitHub button
-function DialogProjects({ title, imgSrc, description, tags, github, live, defaultOpen = false }) {
+function DialogProjects({ title, imgSrc, description, tags, github, live, defaultOpen = false, revealDelay = 0 }) {
     const [open, setOpen] = React.useState(defaultOpen);
+    const [revealRef, seen] = useReveal();
     const handleClose = () => setOpen(false);
 
     return (
-        <div>
+        <div ref={revealRef} className={`reveal ${seen ? 'in' : ''}`} style={{ transitionDelay: seen ? `${revealDelay}ms` : '0ms' }}>
             <div className="projectCard" onClick={() => setOpen(true)}>
               <img src={imgSrc} alt={title} style={{width:"100%",height:"100%",borderRadius:7}}/>
             </div>
             <Dialog open={open} onClose={handleClose} fullWidth maxWidth="sm">
               <div style={{width:"100%",display:"flex",flexDirection:"column"}}>
-                <div style={{padding:5,width:"100%",backgroundColor:"#f0f0f0",fontSize:"150%",borderBottom:"1px solid lightgrey",height:30,borderTopLeftRadius: 10,borderTopRightRadius:10,display:"flex",alignItems: "center"}}>
+                <div style={{padding:5,width:"100%",backgroundColor:"var(--bar2)",fontSize:"150%",borderBottom:"1px solid var(--border)",height:30,borderTopLeftRadius: 10,borderTopRightRadius:10,display:"flex",alignItems: "center"}}>
                     <h1 onClick={handleClose} style={{zIndex:50,marginTop:10,cursor:"pointer"}}><strong style={{color:"#FE5E58"}}> .</strong></h1>
                     <h1 style={{marginTop:10}}><strong style={{color:"#FEBD2C"}}>.</strong></h1>
                     <h1 style={{marginTop:10}}><strong style={{color:"#27C841"}}> .</strong></h1>
